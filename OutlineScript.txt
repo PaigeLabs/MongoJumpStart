@@ -1,0 +1,106 @@
+Hours: 15 Mins Lecture. 15 mins demo. 30 Mins practice.
+
+
+Introduction & Overview
+     Why NoSQL Exists
+     Why Mongo Exists
+     JSON/BSON
+     Vs RDBMS
+          Scaling Horizontally vs Vertically
+          RDBMS == High Functionality & Low Scalability | MongoDB == High Scalability & Moderate => High Functionality
+          Mongo Gives Up Joins & Transactions, because those are the two main things that scale poorly horizontally
+          No Schema
+          No Constraints
+
+16mb document size limit.
+
+The Mongo Shell
+     It’s a (limited) JavaScript interpreter (really)
+     [zips forEach]     
+
+CRUD
+     NO SQL language for MongoDB
+          Each language has drivers that run mongoDB commands (including JavaScript in the Mongo Shell)
+
+     Inserting (CREATE)
+          insert({})
+          db.newCollection.insert({'Hello':'World'})
+          BSON _id
+               ObjectId =
+                    The current time
+                    machine Id of computer that made the object
+                    Process Id of the process that made the object
+                    counter that is global to the process that made the object
+
+     Find (READ)
+          findOne()
+          count()
+          find()
+		.pretty()
+          find({})
+               selectors
+                    $in,$neq, $lt, $gt, $and, $or
+          cursor NOT recordset
+          sort
+          skip
+          limit
+               in that order
+
+     Update (UPDATE)
+          update
+               query
+               update to perform
+               options
+                    upsert
+                    multi !important
+               inner document MUST contain quotes around property query
+               $push, $pop, $pushAll, $popAll, $addToSet, $slice, $each, $sort
+     Remove
+          query
+          options
+               justOne !important
+               
+     Hands-On
+
+Aggregation Framework
+     The Pipeline
+          $project - 1:1
+          $match - n:1
+          $group - n:1
+          $sort - 1:1
+          $skip - n:1
+          $limit - n:1
+          $unwind - 1:n
+     Common Aggregations
+          Counting
+          Grouping
+          Project
+          Unwind
+     Hands-On
+
+Schema Design
+     RDBMS
+          Normalization
+          Application Agnostic
+               Equally bad at all access patterns
+                    The reason for a SQL language
+                    The Reason for ORMs
+     Common Design Patterns
+          Embedding vs Linking
+          Application-Driven Schema
+          Access Patterns
+     Database First (application agnostic)
+     Application First
+     Trade-Offs
+     Hands-On
+
+Indexes
+What are indexes and how do they work in MongoDBCreating a simple indexMulti key indices
+Simple Index
+     Index on field
+Multikey Index
+     Index on array
+     Indexes every item in the array
+
+
+
